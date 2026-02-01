@@ -1,0 +1,73 @@
+/*=======================================================================================*/
+/* FOOTER */
+.main-footer {
+  /* color y margenes del footer */
+  background-color: var(--color-principal); /* Mismo color que header */
+  color: white; /* Texto blanco */
+  padding: 40px var(--container-padding-mobile) 20px; /* Padding responsivo (arriba, lados, abajo) */
+  margin-top: auto; /* Empuja el footer al final cuando hay poco contenido */
+}
+
+.footer-content {
+  /* disposición del contenido del footer */
+  display: flex; /* Flexbox para layout horizontal */
+  justify-content: space-between; /* Espacia los elementos horizontalmente */
+  max-width: 1200px; /* Mismo ancho máximo que el contenido principal */
+  margin: 0 auto; /* Centra el contenido del footer */
+  flex-wrap: wrap; /* Permite que se ajuste en varias líneas en móviles */
+  gap: 40px; /* Espacio entre columnas del footer */
+}
+
+.footer-brand {
+  /* disposición del los elementos de la marca */
+  display: flex; /* Flexbox para logo y redes sociales */
+  flex-direction: column; /* dirección arriba abajo (vertical) */
+  justify-content: space-between; /* Espacia logo arriba y redes abajo */
+  gap: 20px; /* Espacio entre elementos internos */
+  flex: 1; /* Ocupa espacio disponible proporcionalmente */
+  min-width: 250px; /* Ancho mínimo para responsividad */
+}
+
+.social-icons {
+  /* contenedor de los iconos de redes sociales */
+  display: flex; /* Iconos en línea horizontal */
+  gap: 15px; /* Espacio entre iconos */
+}
+
+.social-icons img {
+  width: 24px; /* Ancho fijo para iconos */
+  height: 24px; /* Alto fijo para iconos */
+  transition: transform 0.3s ease; /* Transición suave para efectos hover */
+}
+
+.social-icons a:hover img {
+  transform: scale(1.1); /* Efecto de aumento al pasar el ratón */
+}
+
+.footer-links {
+  flex: 1; /* Ocupa espacio disponible proporcionalmente */
+  min-width: 200px; /* Ancho mínimo para responsividad */
+}
+
+.footer-links h3 {
+  margin-bottom: 20px; /* Espacio debajo del título de sección */
+}
+
+.footer-links ul {
+  display: flex; /* Flexbox para los enlaces */
+  flex-direction: column; /* Enlaces apilados verticalmente */
+  gap: 10px; /* Espacio entre enlaces */
+}
+
+.footer-links a {
+  color: white; /* Texto blanco para enlaces */
+  display: block; /* Cada enlace ocupa toda la línea */
+  transition:
+    color 0.3s ease,
+    padding-left 0.3s ease; /* Transiciones suaves */
+}
+
+.footer-links a:hover {
+  color: var(--color-secundario); /* Cambia a verde claro al hover */
+  padding-left: 5px; /* Efecto de desplazamiento al pasar el ratón */
+}

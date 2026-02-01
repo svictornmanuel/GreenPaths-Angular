@@ -1,0 +1,13 @@
+/*=======================================================================================*/
+/* MAPA */
+.map {
+  /* ancho y alto del contenedor del mapa */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  height: 300px; /* Altura fija inicial */
+
+  /* margen y esquinas */
+  margin-bottom: 5%; /* Separación del contenido inferior */
+  border-radius: 10px; /* redondea esquinas del mapa */
+
+  box-shadow: var(--box-shadow); /* Aplica sombra estandarizada */
+}

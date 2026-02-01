@@ -1,11 +1,11 @@
+import { CommonModule } from '@angular/common';
 import { Component } from '@angular/core';
 
 @Component({
   selector: 'app-about-section',
-  imports: [],
+  standalone: true,
+  imports: [CommonModule],
   templateUrl: './about-section.html',
   styleUrl: './about-section.css',
 })
-export class AboutSection {
-
-}
+export class AboutSection {}

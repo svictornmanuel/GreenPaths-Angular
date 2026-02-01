@@ -1,0 +1,113 @@
+/*=======================================================================================*/
+/* HEADER -> NAVBAR */
+.main-header {
+  /* color de fondo y padding del "navbar" */
+  background-color: var(--color-principal); /* Color verde oscuro */
+  padding: 0 var(--container-padding-mobile); /* Padding lateral responsivo */
+
+  position: fixed; /* fija "navbar" en la parte superior de la pantalla */
+
+  top: 0; /* pegado arriba */
+  left: 0; /* pegado a la izquierda */
+  width: 100%; /* ocupa el 100% de la pantalla */
+  height: var(--header-height-mobile); /* Altura responsiva */
+
+  z-index: 1000; /* Asegura que esté por encima de otros elementos */
+  box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1); /* Sombra sutil para profundidad */
+}
+
+.navbar {
+  /* disposición de los elementos dentro del header */
+  display: flex; /* Flexbox para alinear elementos */
+  justify-content: space-between; /* coloca logo a la izquierda y menú a la derecha */
+  align-items: center; /* Centra verticalmente los elementos */
+  max-width: 1200px; /* Ancho máximo igual al contenido principal */
+  margin: 0 auto; /* Centra el navbar horizontalmente */
+  height: 100%; /* Ocupa toda la altura del header */
+}
+
+.logo {
+  /* contenedor del texto del Logo */
+  color: white; /* Texto blanco */
+  font-size: clamp(18px, 4vw, 32px); /* Tamaño responsivo */
+  font-weight: bold; /* Negrita */
+
+  /* disposición de los elementos dentro del logo */
+  display: flex; /* Para alinear ícono y texto */
+  align-items: center; /* Centra verticalmente */
+  gap: 8px; /* Espacio entre ícono y texto */
+
+  img {
+    /* Estilos específicos para la imagen dentro del logo */
+    width: 35px; /* Ancho fijo */
+    height: 35px; /* Alto fijo */
+    object-fit: contain; /* Mantiene proporciones sin recortar */
+  }
+
+  p {
+    /* Estilos para el texto del logo */
+    margin: 0; /* Sin margen para mejor alineación */
+    white-space: nowrap; /* Evita salto de línea en el logo */
+  }
+}
+
+/* Menú hamburguesa para móviles */
+.menu-toggle {
+  display: none; /* Oculta por defecto (solo visible en móvil) */
+  flex-direction: column; /* Apila las líneas verticalmente */
+  justify-content: space-between; /* Espacia las líneas equitativamente */
+  width: 30px; /* Ancho del botón */
+  height: 21px; /* Alto del botón */
+  background: transparent; /* Fondo transparente */
+  border: none; /* Sin borde */
+  cursor: pointer; /* cambia el raton al colocarlo encima */
+  padding: 0; /* Sin padding */
+  z-index: 1001; /* Asegura que esté por encima del menú desplegable */
+}
+
+.menu-toggle span {
+  width: 100%; /* Cada línea ocupa todo el ancho */
+  height: 3px; /* Grosor de cada línea */
+  background-color: white; /* Color blanco para las líneas */
+  border-radius: 3px; /* Esquinas redondeadas en las líneas */
+  transition: all 0.3s ease; /* Transición suave para animaciones */
+}
+
+.nav-links {
+  display: flex; /* Elementos en línea para desktop */
+  gap: 15px; /* espacio entre elemantos del menú */
+  align-items: center; /* Centra verticalmente los enlaces */
+  transition: all 0.3s ease; /* Transición suave para cambios (móvil) */
+}
+
+.nav-links a {
+  /* Estilos para los enlaces del menú */
+  color: white; /* Texto blanco */
+  font-size: clamp(14px, 2vw, 16px); /* Tamaño responsivo */
+  padding: 5px 0; /* Padding vertical */
+  position: relative; /* Para posicionar el subrayado animado */
+  white-space: nowrap; /* Evita salto de línea en los enlaces */
+}
+
+.nav-links a:not(.boton):after {
+  /* Pseudoelemento para subrayado animado */
+  content: ''; /* Contenido vacío necesario */
+  position: absolute; /* Posicionado relativo al enlace */
+  bottom: 0; /* Alineado al fondo del enlace */
+  left: 0; /* Comienza desde la izquierda */
+  width: 0; /* Inicialmente invisible (ancho 0) */
+  height: 2px; /* Grosor del subrayado */
+  background-color: var(--color-secundario); /* Color verde claro */
+  transition: width 0.3s ease; /* Animación suave del ancho */
+}
+
+.nav-links a:not(.boton):hover:after {
+  width: 100%; /* Muestra la línea subrayada al pasar el ratón (ancho completo) */
+}
+
+/* Botón Explorar Rutas en el menú */
+.nav-links .boton {
+  margin: 0; /* Sin margen para integrarse en el menú */
+  padding: 8px 15px; /* Padding más compacto para menú */
+  font-size: clamp(12px, 2vw, 14px); /* Tamaño más pequeño responsivo */
+}

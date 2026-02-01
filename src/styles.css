@@ -1,1 +1,420 @@
-/* You can add global styles to this file, and also import other style files */
+/*=======================================================================================*/
+/* VARIABLES Y RESET */
+:root {
+  /* Colores principales de la aplicación */
+  --color-principal: rgb(36, 68, 48);
+  --color-secundario: rgb(97, 186, 75);
+  --color-boton: rgb(255, 174, 12);
+  --color-boton-secundario: rgb(235, 118, 8);
+  --color-white: rgb(255, 255, 255);
+
+  /* Sombra estandarizada para elementos */
+  --box-shadow: 0 0 5px 5px rgba(0, 0, 0, 0.1);
+
+  /* Nuevas variables para responsividad */
+  --header-height-mobile: 80px; /* Altura del header en móviles */
+  --header-height-desktop: 70px; /* Altura del header en desktop */
+  --container-padding-mobile: 20px; /* Padding lateral en móviles */
+  --container-padding-desktop: 40px; /* Padding lateral en desktop */
+}
+
+* {
+  /* elimina los margenes por defecto de todos los elementos */
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box; /* Incluye padding y border en el ancho/alto */
+}
+
+html {
+  font-family: Arial, sans-serif; /* Familia tipográfica principal */
+  font-weight: 300; /* Grosor de la fuente ligero */
+  font-style: normal; /* Estilo de fuente normal (no cursiva) */
+  background-color: var(--color-white); /* Color de fondo usando variable */
+  scroll-behavior: smooth; /* Suaviza el scroll para anclas */
+}
+
+body {
+  /* fuente del body */
+  color: black; /* Color del texto principal */
+  line-height: 1.6; /* Altura de línea para mejor legibilidad */
+
+  /* dispocisión de las partes de la pagina (header, body, footer) */
+  display: flex; /* Usa flexbox para layout */
+  flex-direction: column; /* Coloca elementos en columna */
+  min-height: 100vh; /* vh = 1% del alto de la pantalla */
+
+  /* margen superior para que el "navbar" no tape el contenido */
+  padding-top: var(--header-height-mobile); /* Espacio para header fijo */
+}
+
+main {
+  flex: 1; /* mueve el footer al final de la pagina (crece para ocupar espacio disponible) */
+
+  /* ancho del contenido */
+  width: 100%; /* Ocupa todo el ancho disponible */
+  max-width: 1200px; /* Ancho máximo del contenido */
+
+  /* margin y pading del contenido principal (main) */
+  margin: 0 auto; /* Centra el contenido horizontalmente */
+  padding: 0 var(--container-padding-mobile); /* Padding lateral responsivo */
+}
+
+/* Tipografía responsiva con clamp (mínimo, preferido, máximo) */
+h1 {
+  font-size: clamp(24px, 5vw, 32px); /* Tamaño fluido entre 24px y 32px */
+  font-weight: bold; /* Negrita para títulos */
+  margin-bottom: 1rem; /* Espacio inferior (16px) */
+  line-height: 1.3; /* Altura de línea específica para títulos */
+}
+
+h2 {
+  font-size: clamp(20px, 4vw, 28px); /* Tamaño responsivo */
+  margin-bottom: 0.75rem; /* Espacio inferior (12px) */
+}
+
+h3 {
+  font-size: clamp(18px, 3.5vw, 24px); /* Tamaño responsivo */
+  margin-bottom: 0.5rem; /* Espacio inferior (8px) */
+}
+
+h4 {
+  font-size: clamp(16px, 3vw, 20px); /* Tamaño responsivo */
+}
+
+p {
+  font-size: clamp(14px, 2.5vw, 16px); /* Tamaño responsivo para párrafos */
+  margin-bottom: 1rem; /* Espacio inferior estándar */
+}
+
+a {
+  /* elimina las decoraciones del texto de los enlaces */
+  text-decoration: none; /* Sin subrayado */
+}
+
+ul {
+  /* elimina las decoraciones de lista (viñetas) */
+  list-style: none; /* Sin viñetas ni números */
+}
+
+img {
+  /* imagen ahora ocupa el 100% del contenedor pero mantiene proporciones */
+  max-width: 100%; /* Nunca más ancha que su contenedor */
+  height: auto; /* Mantiene proporciones originales */
+  display: block; /* Elimina espacio fantasma debajo de imágenes */
+}
+
+/*=======================================================================================*/
+/* BOTONES */
+.boton {
+  /* color del fondo y letra */
+  background-color: var(--color-boton); /* Color primario del botón */
+  color: white; /* Texto blanco para contraste */
+
+  /* margenes y posición del boton*/
+  margin-bottom: 3%; /* Espacio inferior relativo */
+  padding: 12px 24px; /* Espaciado interno (vertical horizontal) */
+  border-radius: 5px; /* redondea esquinas */
+  border: none; /* Sin borde */
+  display: inline-block; /* Se comporta como bloque pero en línea */
+  min-width: 140px; /* Evita botones demasiado pequeños */
+  text-align: center; /* Centra el texto horizontalmente */
+
+  /* cambia el raton al colocarlo encima */
+  cursor: pointer; /* Manita al pasar sobre el botón */
+
+  font-weight: bold; /* negrita */
+  font-size: clamp(14px, 2.5vw, 16px); /* Tamaño responsivo */
+  transition:
+    background-color 0.3s ease,
+    transform 0.2s ease; /* Animaciones suaves */
+}
+
+.boton:hover {
+  /* cambia el boton al pasar con el ratón*/
+  background-color: var(--color-boton-secundario); /* Color más oscuro al hover */
+  transform: translateY(-2px); /* Efecto de levantar ligeramente */
+}
+
+.boton:active {
+  /* Estilos cuando se hace clic en el botón */
+  transform: translateY(0); /* Vuelve a posición original al hacer clic */
+}
+/*=======================================================================================*/
+/* VALIDACIÓN DE FORMULARIO */
+.error-message {
+    color: #e74c3c; /* Color rojo para errores */
+    font-size: 14px; /* Tamaño pequeño para no distraer */
+    margin-top: 5px; /* Separación del campo de entrada */
+    display: none; /* Oculto por defecto */
+    padding: 5px 10px; /* Espaciado interno */
+    background-color: rgba(231, 76, 60, 0.1); /* Fondo rojo muy suave */
+    border-radius: 4px; /* Esquinas ligeramente redondeadas */
+    border-left: 3px solid #e74c3c; /* Borde izquierdo rojo para destacar */
+}
+
+/* Estado de campos inválidos */
+.contribute-form input.error,
+.contribute-form textarea.error {
+    border-color: #e74c3c; /* Borde rojo para campos con error */
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2); /* Sombra roja suave al enfocar */
+}
+
+/* Estado de campos válidos */
+.contribute-form input.valid,
+.contribute-form textarea.valid {
+    border-color: #27ae60; /* Borde verde para campos válidos */
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2); /* Sombra verde suave al enfocar */
+}
+
+/* Estado del formulario */
+.form-status {
+    margin: 15px 0; /* Márgenes superior e inferior */
+    padding: 12px; /* Espaciado interno */
+    border-radius: 6px; /* Esquinas redondeadas */
+    font-size: 14px; /* Tamaño de fuente legible */
+    display: none; /* Oculto por defecto */
+    text-align: center; /* Texto centrado */
+}
+
+.form-status.valid {
+    background-color: rgba(39, 174, 96, 0.1); /* Fondo verde muy suave */
+    color: #27ae60; /* Texto verde */
+    border: 1px solid #27ae60; /* Borde verde */
+    display: block; /* Visible cuando tiene contenido */
+}
+
+.form-status.invalid {
+    background-color: rgba(231, 76, 60, 0.1); /* Fondo rojo muy suave */
+    color: #e74c3c; /* Texto rojo */
+    border: 1px solid #e74c3c; /* Borde rojo */
+    display: block; /* Visible cuando tiene contenido */
+}
+
+/* Botón deshabilitado */
+.boton:disabled {
+    background-color: #cccccc; /* Color gris para indicar deshabilitado */
+    cursor: not-allowed; /* Cursor de "no permitido" */
+    transform: none; /* Sin efecto de elevación */
+    box-shadow: none; /* Sin sombra */
+}
+
+.boton:disabled:hover {
+    background-color: #cccccc; /* Mantiene color gris al pasar el ratón */
+    transform: none; /* Sin efecto de elevación */
+    box-shadow: none; /* Sin sombra */
+}
+/*=======================================================================================*/
+/* MEDIA QUERIES PARA RESPONSIVIDAD */
+
+/* Tablet: 768px a 1024px */
+@media screen and (min-width: 768px) {
+    body {
+        padding-top: var(--header-height-desktop); /* Altura del header para desktop */
+    }
+    
+    main {
+        padding: 0 var(--container-padding-desktop); /* Padding lateral mayor en desktop */
+    }
+    
+    .main-header {
+        padding: 0 var(--container-padding-desktop); /* Padding lateral mayor en desktop */
+        height: var(--header-height-desktop); /* Altura más compacta en desktop */
+    }
+    
+    .cards-grid {
+        grid-template-columns: repeat(2, 1fr); /* 2 columnas en tablet */
+    }
+    
+    .contribute-section {
+        grid-template-columns: 1fr 1fr; /* 2 columnas en tablet y desktop */
+    }
+    
+    .map {
+        height: 400px; /* Mapa más alto en tablet/desktop */
+    }
+    
+    .nav-links {
+        gap: 20px; /* Más espacio entre enlaces del menú */
+    }
+    
+    .main-footer {
+        padding: 40px var(--container-padding-desktop) 20px; /* Padding lateral mayor */
+    }
+}
+
+/* Desktop: 1024px en adelante */
+@media screen and (min-width: 1024px) {
+    .cards-grid {
+        grid-template-columns: repeat(3, 1fr); /* 3 columnas en desktop */
+    }
+    
+    .hero-section {
+        margin: 60px 0 80px; /* Márgenes mayores en desktop */
+    }
+    
+    .info-section, .cards-section, .contribute-section {
+        margin: 80px 0; /* Márgenes mayores en desktop */
+    }
+    
+    .nav-links {
+        gap: 25px; /* Aún más espacio entre enlaces */
+    }
+    
+    .footer-content {
+        gap: 60px; /* Más espacio entre columnas del footer */
+    }
+}
+
+/* Movil pequeño: menos de 480px */
+@media screen and (max-width: 480px) {
+    .main-header {
+        padding: 0 15px; /* Padding lateral reducido en móviles muy pequeños */
+    }
+    
+    main {
+        padding: 0 15px; /* Padding lateral reducido en móviles muy pequeños */
+    }
+    
+    .menu-toggle {
+        display: flex; /* Muestra el menú hamburguesa en móvil */
+    }
+    
+    .nav-links {
+        position: fixed; /* Posicionamiento fijo para el menú desplegable */
+        top: var(--header-height-mobile); /* Debajo del header */
+        left: 0; /* Alineado a la izquierda */
+        width: 100%; /* Ancho completo de la pantalla */
+        background-color: var(--color-principal); /* Mismo color que header */
+        flex-direction: column; /* Apila los enlaces verticalmente */
+        align-items: flex-start; /* Alinea a la izquierda */
+        padding: 20px; /* Padding interno */
+        gap: 0; /* Sin espacio entre elementos (se controla con bordes) */
+        box-shadow: 0 10px 20px rgba(0,0,0,0.1); /* Sombra para profundidad */
+        transform: translateY(-100%); /* Oculta el menú fuera de pantalla (arriba) */
+        opacity: 0; /* Invisible inicialmente */
+        visibility: hidden; /* No ocupa espacio cuando está oculto */
+        z-index: 999; /* Debajo del botón hamburguesa pero sobre contenido */
+    }
+    
+    .nav-links.active {
+        transform: translateY(0); /* Muestra el menú deslizándolo a su posición */
+        opacity: 1; /* Totalmente visible */
+        visibility: visible; /* Ocupa espacio y es interactuable */
+    }
+    
+    .nav-links li {
+        width: 100%; /* Cada elemento ocupa todo el ancho */
+        border-bottom: 1px solid rgba(255,255,255,0.1); /* Divisores sutiles entre elementos */
+    }
+    
+    .nav-links li:last-child {
+        border-bottom: none; /* El último elemento sin borde inferior */
+        margin-top: 15px; /* Espacio extra antes del botón */
+    }
+    
+    .nav-links a {
+        display: block; /* Cada enlace ocupa toda la línea */
+        padding: 15px 0; /* Padding vertical táctil (fácil de tocar) */
+        width: 100%; /* Ancho completo */
+    }
+    
+    .nav-links .boton {
+        width: 100%; /* Botón de ancho completo en móvil */
+        text-align: center; /* Texto centrado */
+        margin-top: 10px; /* Espacio adicional arriba */
+    }
+    
+    .logo img {
+        width: 30px; /* Ícono más pequeño en móvil */
+        height: 30px; /* Ícono más pequeño en móvil */
+    }
+    
+    .map {
+        height: 250px; /* Mapa más bajo en móviles pequeños */
+    }
+    
+    .card-route img {
+        height: 180px; /* Imágenes de tarjetas más bajas en móvil */
+    }
+    
+    .card-content {
+        padding: 20px; /* Padding reducido en móvil */
+    }
+    
+    .footer-content {
+        flex-direction: column; /* Columnas apiladas verticalmente en móvil */
+        gap: 30px; /* Espacio entre secciones del footer */
+    }
+    
+    .footer-links ul {
+        text-align: left; /* Alineación izquierda en móvil (no derecha como desktop) */
+    }
+    
+    .contribute-form input, 
+    .contribute-form textarea {
+        padding: 12px; /* Padding reducido en móvil */
+    }
+}
+
+/* Tablet en orientación horizontal y desktop pequeño */
+@media screen and (min-width: 481px) and (max-width: 767px) {
+    .cards-grid {
+        grid-template-columns: 1fr; /* 1 columna en tablet pequeña */
+    }
+    
+    .contribute-section {
+        grid-template-columns: 1fr; /* 1 columna en tablet pequeña */
+    }
+    
+    .nav-links {
+        flex-wrap: wrap; /* Permite que los enlaces se ajusten en varias líneas si es necesario */
+        justify-content: center; /* Centra los enlaces */
+        gap: 10px; /* Espacio reducido entre enlaces */
+    }
+    
+    .nav-links .boton {
+        margin-top: 5px; /* Pequeño espacio arriba del botón */
+    }
+}
+
+/* Pantallas muy grandes: más de 1400px */
+@media screen and (min-width: 1400px) {
+    main {
+        max-width: 1400px; /* Ancho máximo mayor en pantallas grandes */
+    }
+    
+    .navbar, .footer-content {
+        max-width: 1400px; /* Ancho máximo mayor para header y footer */
+    }
+}
+
+/* Mejoras de accesibilidad para modo alto contraste */
+@media (prefers-contrast: high) {
+    .boton {
+        border: 2px solid black; /* Mejora visibilidad en alto contraste añadiendo borde */
+    }
+    
+    .card-route {
+        border: 2px solid var(--color-principal); /* Borde para tarjetas en alto contraste */
+    }
+}
+
+/* Soporte para dispositivos con pantalla táctil */
+@media (hover: none) and (pointer: coarse) {
+    .boton:hover {
+        transform: none; /* Desactiva efectos hover en dispositivos táctiles */
+    }
+    
+    .card-route:hover {
+        transform: none; /* Desactiva efectos hover en dispositivos táctiles */
+    }
+    
+    .nav-links a:not(.boton):after {
+        display: none; /* Oculta subrayado animado en dispositivos táctiles */
+    }
+    
+    .contribute-form input, 
+    .contribute-form textarea {
+        font-size: 16px; /* Previene zoom automático en iOS al hacer foco */
+    }
+}
