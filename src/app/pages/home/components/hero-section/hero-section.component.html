@@ -1,0 +1,18 @@
+<section class="hero-section" id="inicio">
+  <h1>Descubre Rutas Verdes Urbanas</h1>
+  <h3>Conecta con la naturaleza urbana mientras promueves movilidad sostenible</h3>
+  <p>Explora rutas seguras y ecológicas diseñadas para caminantes y ciclistas. Encuentra los mejores recorridos verdes de tu ciudad, promoviendo movilidad sostenible y bienestar comunitario.</p>
+  
+  <app-custom-button 
+    [text]="'Descubre Rutas'"
+    (clicked)="onDiscoverRoutes()">
+  </app-custom-button>
+
+  <app-map-viewer 
+    [initialLocation]="{
+      lat: 4.60971,
+      lng: -74.08175,
+      zoom: 12
+    }">
+  </app-map-viewer>
+</section>

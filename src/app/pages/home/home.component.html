@@ -1,0 +1,17 @@
+<!-- No necesitamos el main aquí porque lo maneja app.component -->
+<app-hero-section 
+  (discoverRoutes)="showCity()">
+</app-hero-section>
+
+<app-routes-section 
+  [routes]="routes"
+  (viewRoute)="showRoute($event)">
+</app-routes-section>
+
+<app-health-section></app-health-section>
+
+<app-environment-section></app-environment-section>
+
+<app-contribute-section></app-contribute-section>
+
+<app-about-section></app-about-section>
