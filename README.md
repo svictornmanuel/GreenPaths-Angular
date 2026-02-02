@@ -1,59 +1,72 @@
-# GreenPaths
+===========================================================================
+      CORPORACIÓN UNIVERSITARIA MINUTO DE DIOS - UNIMINUTO
+      FACULTAD DE INGENIERÍA - PROGRAMA DE INGENIERÍA DE SISTEMAS
+===========================================================================
 
-This project was generated using [Angular CLI](https://github.com/angular/angular-cli) version 20.2.0.
+MATERIA: Ingeniería Web 2
+PROYECTO: GreenPaths - Plataforma de Gestión Sostenible
+ESTUDIANTES: 
+   - Sebastian Castillo Salamanca
+   - Juan Felipe Guerrero Quiroga
+   - Victor Manuel Sanchez Narvaez
+   - Juan Nicolas Contreras Peña
 
-## Development server
+FECHA: 01 Febrero de 2026
+TECNOLOGÍA: Angular 20.2.0
 
-To start a local development server, run:
+---------------------------------------------------------------------------
+1. DESCRIPCIÓN DEL PROYECTO
+---------------------------------------------------------------------------
+"GreenPaths" es una aplicación web diseñada bajo el marco del ODS 17: 
+"Alianzas para lograr los objetivos". La plataforma centraliza iniciativas 
+ambientales y facilita la colaboración ciudadana mediante una arquitectura 
+moderna de componentes en Angular.
 
-```bash
-ng serve
-```
+---------------------------------------------------------------------------
+2. REQUERIMIENTOS TÉCNICOS
+---------------------------------------------------------------------------
+* Git: Para el control de versiones y clonación.
+* Node.js: Versión 20.2.0
+* Angular CLI: v20.2.0
 
-Once the server is running, open your browser and navigate to `http://localhost:4200/`. The application will automatically reload whenever you modify any of the source files.
+---------------------------------------------------------------------------
+3. GUÍA DE INSTALACIÓN (FLUJO GIT)
+---------------------------------------------------------------------------
 
-## Code scaffolding
+Paso 1: Clonar el Repositorio
+   Para obtener el código fuente desde la nube, abra una terminal (Git Bash 
+   o CMD) en su escritorio y ejecute:
+   
+   git clone https://github.com/svictornmanuel/GreenPaths-Angular.git
 
-Angular CLI includes powerful code scaffolding tools. To generate a new component, run:
+Paso 2: Acceso al Directorio
+   Entre a la carpeta recién creada:
+   cd GreenPaths-Angular
 
-```bash
-ng generate component component-name
-```
+Paso 3: Abrir en Visual Studio Code
+   Una vez dentro de la carpeta, ejecute:
+   code .
 
-For a complete list of available schematics (such as `components`, `directives`, or `pipes`), run:
+---------------------------------------------------------------------------
+4. CONFIGURACIÓN DEL ENTORNO (PERMISOS DE WINDOWS)
+---------------------------------------------------------------------------
+Es INDISPENSABLE habilitar la ejecución de scripts en PowerShell para que 
+el comando 'npm' funcione correctamente:
 
-```bash
-ng generate --help
-```
+1. Ejecute PowerShell como Administrador.
+2. Ingrese: Set-ExecutionPolicy -ExecutionPolicy RemoteSigned -Scope CurrentUser
+3. Escriba "S" y presione Enter.
 
-## Building
+---------------------------------------------------------------------------
+5. INSTALACIÓN DE DEPENDENCIAS Y EJECUCIÓN
+---------------------------------------------------------------------------
 
-To build the project run:
+1. Instalar dependencias: 
+   En la terminal de VS Code, ejecute: npm install
 
-```bash
-ng build
-```
+2. Iniciar servidor local: 
+   Para evitar errores de SSR (Server Side Rendering), use este comando:
+   npx ng serve --configuration development -o
 
-This will compile your project and store the build artifacts in the `dist/` directory. By default, the production build optimizes your application for performance and speed.
-
-## Running unit tests
-
-To execute unit tests with the [Karma](https://karma-runner.github.io) test runner, use the following command:
-
-```bash
-ng test
-```
-
-## Running end-to-end tests
-
-For end-to-end (e2e) testing, run:
-
-```bash
-ng e2e
-```
-
-Angular CLI does not come with an end-to-end testing framework by default. You can choose one that suits your needs.
-
-## Additional Resources
-
-For more information on using the Angular CLI, including detailed command references, visit the [Angular CLI Overview and Command Reference](https://angular.dev/tools/cli) page.
+URL de acceso: http://localhost:4200/
+===========================================================================
