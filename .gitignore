@@ -44,3 +44,6 @@ coverage/
 .DS_Store
 Thumbs.db
 desktop.ini
+
+# Angular CLI cache
+/.angular
