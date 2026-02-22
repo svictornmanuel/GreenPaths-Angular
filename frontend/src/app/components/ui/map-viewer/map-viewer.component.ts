@@ -1,4 +1,10 @@
-import { Component, AfterViewInit, Input, Output, EventEmitter } from '@angular/core';
+import {
+  Component,
+  AfterViewInit,
+  Input,
+  Output,
+  EventEmitter,
+} from '@angular/core';
 import * as L from 'leaflet';
 
 export interface MapLocation {
@@ -22,10 +28,14 @@ export interface RouteMarker {
   selector: 'app-map-viewer',
   standalone: true,
   templateUrl: './map-viewer.component.html',
-  styleUrls: ['./map-viewer.component.css']
+  styleUrls: ['./map-viewer.component.css'],
 })
 export class MapViewerComponent implements AfterViewInit {
-  @Input() initialLocation: MapLocation = { lat: 4.60971, lng: -74.08175, zoom: 12 };
+  @Input() initialLocation: MapLocation = {
+    lat: 4.60971,
+    lng: -74.08175,
+    zoom: 12,
+  };
   @Input() showRouteMarker: boolean = false;
   @Input() routeMarker?: RouteMarker;
   @Output() mapInitialized = new EventEmitter<L.Map>();
@@ -39,13 +49,14 @@ export class MapViewerComponent implements AfterViewInit {
 
   private initializeMap(): void {
     this.map = L.map('map').setView(
-      [this.initialLocation.lat, this.initialLocation.lng], 
-      this.initialLocation.zoom
+      [this.initialLocation.lat, this.initialLocation.lng],
+      this.initialLocation.zoom,
     );
 
     L.tileLayer('https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png', {
-      attribution: '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
-      maxZoom: 20
+      attribution:
+        '© <a href="https://www.openstreetmap.org/copyright">OpenStreetMap</a> contributors',
+      maxZoom: 20,
     }).addTo(this.map);
 
     this.mapInitialized.emit(this.map);
@@ -71,13 +82,15 @@ export class MapViewerComponent implements AfterViewInit {
 
   private addRouteMarker(route: RouteMarker): void {
     this.removeMarker();
-    
+
     this.marker = L.marker([route.lat, route.lng], {
       title: route.name,
-      alt: route.name
+      alt: route.name,
     }).addTo(this.map);
 
-    this.marker.bindPopup(`
+    this.marker
+      .bindPopup(
+        `
       <div style="max-width: 250px;">
         <h4 style="margin: 0 0 8px 0; color: rgb(97, 186, 75);">${route.name}</h4>
         <p style="margin: 0 0 10px 0; color: rgb(0, 0, 0);">${route.description}</p>
@@ -87,7 +100,9 @@ export class MapViewerComponent implements AfterViewInit {
           <strong>Tipo:</strong> ${route.type}
         </div>
       </div>
-    `).openPopup();
+    `,
+      )
+      .openPopup();
   }
 
   private removeMarker(): void {

@@ -1,10 +1,14 @@
 <header class="main-header">
   <nav class="navbar">
     <a routerLink="/" class="logo" (click)="closeMenu()">
-      <img src="assets/img/favicon-green-paths.png" alt="logo GreenPaths" class="favicon">
+      <img
+        src="assets/img/favicon-green-paths.png"
+        alt="logo GreenPaths"
+        class="favicon"
+      />
       <p>GreenPaths</p>
     </a>
-    
+
     <ul class="nav-links" [class.active]="isMenuOpen">
       <li><a (click)="scrollToSection('inicio')">Inicio</a></li>
       <li><a (click)="scrollToSection('rutas')">Rutas</a></li>
@@ -12,14 +16,17 @@
       <li><a (click)="scrollToSection('ambiente')">Ambiente</a></li>
       <li><a (click)="scrollToSection('contribuye')">Contribuye</a></li>
       <li><a (click)="scrollToSection('nosotros')">Nosotros</a></li>
-      <li><a class="boton" (click)="scrollToSection('inicio')">Explorar Rutas</a></li>
+      <li>
+        <a class="boton" (click)="scrollToSection('inicio')">Explorar Rutas</a>
+      </li>
     </ul>
-    
-    <button 
-      class="menu-toggle" 
-      aria-label="Abrir menú" 
+
+    <button
+      class="menu-toggle"
+      aria-label="Abrir menú"
       [attr.aria-expanded]="isMenuOpen"
-      (click)="toggleMenu()">
+      (click)="toggleMenu()"
+    >
       <span></span>
       <span></span>
       <span></span>

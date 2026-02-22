@@ -18,7 +18,7 @@ export interface RouteData {
   standalone: true,
   imports: [CommonModule, CustomButtonComponent],
   templateUrl: './route-card.component.html',
-  styleUrls: ['./route-card.component.css']
+  styleUrls: ['./route-card.component.css'],
 })
 export class RouteCardComponent {
   @Input() route!: RouteData;
