@@ -1,0 +1,50 @@
+<div class="perfil-container">
+  <h1>Mi Perfil</h1>
+
+  <section class="info-section">
+    <h2>Información personal</h2>
+    <div class="foto-perfil">
+      <img [src]="userInfo.foto" alt="Foto de perfil" />
+      <button class="btn-secondary">Cambiar foto</button>
+    </div>
+
+    <div class="form-group">
+      <label>Nombre</label>
+      <input type="text" [(ngModel)]="userInfo.nombre" />
+    </div>
+
+    <div class="form-group">
+      <label>Email</label>
+      <input type="email" [(ngModel)]="userInfo.email" />
+    </div>
+
+    <app-custom-button
+      text="Guardar cambios"
+      (clicked)="onSaveInfo()"
+    ></app-custom-button>
+  </section>
+
+  <section class="security-section">
+    <h2>Seguridad</h2>
+
+    <div class="form-group">
+      <label>Contraseña actual</label>
+      <input type="password" [(ngModel)]="passwordData.actual" />
+    </div>
+
+    <div class="form-group">
+      <label>Nueva contraseña</label>
+      <input type="password" [(ngModel)]="passwordData.nueva" />
+    </div>
+
+    <div class="form-group">
+      <label>Confirmar nueva contraseña</label>
+      <input type="password" [(ngModel)]="passwordData.confirmar" />
+    </div>
+
+    <app-custom-button
+      text="Cambiar contraseña"
+      (clicked)="onChangePassword()"
+    ></app-custom-button>
+  </section>
+</div>

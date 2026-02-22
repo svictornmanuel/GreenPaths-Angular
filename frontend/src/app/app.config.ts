@@ -10,14 +10,13 @@ import { FooterComponent } from './components/layout/footer/footer.component';
 
 const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: '**', redirectTo: '' }
+  { path: '**', redirectTo: '' },
 ];
 
 export const appConfig: ApplicationConfig = {
   providers: [
     provideRouter(routes),
-    provideClientHydration(),
     provideAnimations(),
-    importProvidersFrom(FormsModule)
-  ]
+    importProvidersFrom(FormsModule),
+  ],
 };

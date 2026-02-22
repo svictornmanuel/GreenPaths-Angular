@@ -1,0 +1,56 @@
+<div class="admin-container">
+  <div class="header">
+    <h1>Gestión de Rutas</h1>
+    <a routerLink="/admin/rutas/crear" class="btn-primary">Crear nueva ruta</a>
+  </div>
+
+  <div class="filters">
+    <input type="text" placeholder="Buscar rutas..." />
+    <select>
+      <option value="">Todos los estados</option>
+      <option value="publicado">Publicado</option>
+      <option value="borrador">Borrador</option>
+    </select>
+  </div>
+
+  <table class="routes-table">
+    <thead>
+      <tr>
+        <th>ID</th>
+        <th>Nombre</th>
+        <th>Creador</th>
+        <th>Fecha creación</th>
+        <th>Estado</th>
+        <th>Acciones</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let ruta of rutas">
+        <td>{{ ruta.id }}</td>
+        <td>{{ ruta.nombre }}</td>
+        <td>{{ ruta.creador }}</td>
+        <td>{{ ruta.fecha }}</td>
+        <td>
+          <span
+            class="estado"
+            [class.publicado]="ruta.estado === 'Publicado'"
+            [class.borrador]="ruta.estado === 'Borrador'"
+          >
+            {{ ruta.estado }}
+          </span>
+        </td>
+        <td class="acciones">
+          <button class="btn-icon" (click)="onEdit(ruta.id)" title="Editar">
+            ✏️
+          </button>
+          <button class="btn-icon" (click)="onDelete(ruta.id)" title="Eliminar">
+            🗑️
+          </button>
+          <button class="btn-icon" (click)="onView(ruta.id)" title="Ver">
+            👁️
+          </button>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+</div>

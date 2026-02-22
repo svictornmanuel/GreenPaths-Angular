@@ -1,0 +1,22 @@
+.instructions {
+  margin-bottom: 20px;
+  color: #666;
+}
+
+.confirmacion {
+  text-align: center;
+  padding: 20px;
+  background: #e8f5e9;
+  border-radius: 8px;
+  margin-bottom: 20px;
+}
+
+.confirmacion p {
+  color: #2e7d32;
+  font-weight: 500;
+}
+
+.back-link {
+  color: #4caf50;
+  text-decoration: none;
+}

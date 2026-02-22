@@ -1,1 +1,87 @@
-<p>ruta-form works!</p>
+<div class="form-container">
+  <h1>{{ isEdit ? 'Editar Ruta' : 'Crear Nueva Ruta' }}</h1>
+
+  <form (ngSubmit)="onPublish()" #rutaForm="ngForm">
+    <div class="form-group">
+      <label for="nombre">Nombre *</label>
+      <input
+        type="text"
+        id="nombre"
+        name="nombre"
+        [(ngModel)]="ruta.nombre"
+        required
+      />
+    </div>
+
+    <div class="form-group">
+      <label for="descripcion">Descripción</label>
+      <textarea
+        id="descripcion"
+        name="descripcion"
+        [(ngModel)]="ruta.descripcion"
+        rows="5"
+      ></textarea>
+      <small class="hint"
+        >Puedes usar formato básico (negritas, listas, etc.)</small
+      >
+    </div>
+
+    <div class="form-group">
+      <label for="ubicacion">Ubicación</label>
+      <input
+        type="text"
+        id="ubicacion"
+        name="ubicacion"
+        [(ngModel)]="ruta.ubicacion"
+      />
+    </div>
+
+    <div class="coords-row">
+      <div class="form-group">
+        <label for="lat">Latitud</label>
+        <input type="text" id="lat" name="lat" [(ngModel)]="ruta.lat" />
+      </div>
+      <div class="form-group">
+        <label for="lng">Longitud</label>
+        <input type="text" id="lng" name="lng" [(ngModel)]="ruta.lng" />
+      </div>
+    </div>
+
+    <div class="form-group">
+      <label>Fotos</label>
+      <div class="upload-area" (click)="fileInput.click()">
+        <span>Arrastra imágenes aquí o haz clic para seleccionar</span>
+        <input
+          type="file"
+          #fileInput
+          (change)="onFileSelected($event)"
+          multiple
+          accept="image/*"
+          style="display: none"
+        />
+      </div>
+      <div class="preview" *ngIf="ruta.fotos.length > 0">
+        <!-- Aquí se mostrarían las miniaturas -->
+      </div>
+    </div>
+
+    <div class="form-actions">
+      <app-custom-button
+        type="button"
+        text="Guardar borrador"
+        (clicked)="onSaveDraft()"
+      ></app-custom-button>
+      <app-custom-button
+        type="submit"
+        text="Publicar"
+        [disabled]="rutaForm.invalid"
+      ></app-custom-button>
+      <app-custom-button
+        type="button"
+        text="Cancelar"
+        (clicked)="onCancel()"
+        classNames="secondary"
+      ></app-custom-button>
+    </div>
+  </form>
+</div>
