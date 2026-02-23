@@ -3,9 +3,9 @@
   <h3>Descubre los mejores recorridos ecológicos en tu ciudad</h3>
   <p>Nuestro equipo selecciona cuidadosamente las mejores rutas que combinan seguridad, belleza natural y beneficios para tu salud. Cada ruta está categorizada por tipo y dificultad para que encuentres la perfecta para ti.</p>
   
-  <div class="cards-grid">
+  <div class="routes-grid">
     <app-route-card
-      *ngFor="let route of routes; let i = index"
+      *ngFor="let route of routes"
       [route]="route"
       (viewRoute)="onViewRoute($event)">
     </app-route-card>

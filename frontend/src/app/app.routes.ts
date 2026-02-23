@@ -1,6 +1,5 @@
 import { Routes } from '@angular/router';
 import { HomeComponent } from './pages/home/home.component';
-import { RutasComponent } from './pages/rutas/rutas.component';
 import { RegistroComponent } from './pages/registro/registro.component';
 import { LoginComponent } from './pages/login/login.component';
 import { RecuperarComponent } from './pages/recuperar/recuperar.component';
@@ -13,10 +12,9 @@ import { AccesoDenegadoComponent } from './pages/error/acceso-denegado/acceso-de
 
 export const routes: Routes = [
   { path: '', component: HomeComponent },
-  { path: 'rutas', component: RutasComponent },
   { path: 'registro', component: RegistroComponent },
   { path: 'login', component: LoginComponent },
-  { path: 'recuperar-contrasena', component: RecuperarComponent },
+  { path: 'recuperar', component: RecuperarComponent },
   { path: 'restablecer-contrasena/:token', component: RestablecerComponent },
   { path: 'perfil', component: PerfilComponent },
   { path: 'admin/rutas', component: AdminRutasComponent },

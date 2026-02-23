@@ -74,7 +74,7 @@
       <app-custom-button
         type="submit"
         text="Publicar"
-        [disabled]="rutaForm.invalid"
+        [disabled]="rutaForm.invalid ?? false"
       ></app-custom-button>
       <app-custom-button
         type="button"

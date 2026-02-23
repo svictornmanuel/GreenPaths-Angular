@@ -5,8 +5,8 @@ import { HeroSectionComponent } from "./components/hero-section/hero-section.com
 import { RoutesSectionComponent } from "./components/routes-section/routes-section.component";
 import { HealthSectionComponent } from "./components/health-section/health-section.component";
 import { EnvironmentSectionComponent } from "./components/environment-section/environment-section.component";
-import { ContributeSectionComponent } from "./components/contribute-section/contribute-section.component";
 import { AboutSectionComponent } from "./components/about-section/about-section.component";
+import { ContributeSectionComponent } from './components/contribute-section/contribute-section.component';
 
 @Component({
   selector: 'app-home',
@@ -73,15 +73,5 @@ export class HomeComponent implements AfterViewInit {
     }, 100);
   }
 
-  showCity(): void {
-    if (this.mapViewer) {
-      this.mapViewer.showCity(this.bogotaLocation);
-    }
-  }
-
-  showRoute(routeId: string): void {
-    if (this.mapViewer && routeId === 'simon-bolivar') {
-      this.mapViewer.showRoute(this.simonBolivarMarker);
-    }
-  }
+  
 }

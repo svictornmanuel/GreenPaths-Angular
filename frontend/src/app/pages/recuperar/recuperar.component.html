@@ -23,7 +23,7 @@
       <app-custom-button
         type="submit"
         text="Enviar enlace"
-        [disabled]="recuperarForm.invalid"
+        [disabled]="recuperarForm.invalid ?? false"
       >
       </app-custom-button>
     </form>

@@ -16,7 +16,6 @@ export interface RouteData {
 @Component({
   selector: 'app-route-card',
   standalone: true,
-  imports: [CommonModule, CustomButtonComponent],
   templateUrl: './route-card.component.html',
   styleUrls: ['./route-card.component.css'],
 })
@@ -25,6 +24,14 @@ export class RouteCardComponent {
   @Output() viewRoute = new EventEmitter<string>();
 
   onViewRoute(): void {
+    console.log('RouteCard: emitir viewRoute con id', this.route.id);
     this.viewRoute.emit(this.route.id);
+  }
+
+  scrollToSection(sectionId: string): void {
+    const element = document.getElementById(sectionId);
+    if (element) {
+      element.scrollIntoView({ behavior: 'smooth' });
+    }
   }
 }

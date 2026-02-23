@@ -7,8 +7,8 @@ import { CustomButtonComponent } from '../../../components/ui/custom-button/cust
   selector: 'app-admin-rutas',
   standalone: true,
   imports: [CommonModule, RouterLink, CustomButtonComponent],
-  templateUrl: './rutas.html',
-  styleUrls: ['./rutas.css'],
+  templateUrl: './rutas.component.html',
+  styleUrls: ['./rutas.component.css'],
 })
 export class AdminRutasComponent {
   rutas = [
