@@ -14,66 +14,71 @@ export type Database = {
   }
   public: {
     Tables: {
-      profiles: {
-        Row: {
-          avatar_url: string | null
-          created_at: string | null
-          email: string | null
-          full_name: string | null
-          id: string
-          role: Database["public"]["Enums"]["app_role"]
-          updated_at: string | null
-        }
-        Insert: {
-          avatar_url?: string | null
-          created_at?: string | null
-          email?: string | null
-          full_name?: string | null
-          id: string
-          role?: Database["public"]["Enums"]["app_role"]
-          updated_at?: string | null
-        }
-        Update: {
-          avatar_url?: string | null
-          created_at?: string | null
-          email?: string | null
-          full_name?: string | null
-          id?: string
-          role?: Database["public"]["Enums"]["app_role"]
-          updated_at?: string | null
-        }
-        Relationships: []
-      }
       routes: {
         Row: {
-          coordenadas: number[]
-          created_at: string | null
-          created_by: string | null
-          descripcion: string | null
-          direccion: string
-          id: number
-          imagen_url: string | null
-          nombre: string
+          coordinates: number[]
+          created_at: string
+          created_by: string
+          description: string | null
+          direction: string | null
+          id: string
+          image_url: string | null
+          is_hidden: boolean
+          name: string
         }
         Insert: {
-          coordenadas: number[]
-          created_at?: string | null
-          created_by?: string | null
-          descripcion?: string | null
-          direccion: string
-          id?: never
-          imagen_url?: string | null
-          nombre: string
+          coordinates: number[]
+          created_at?: string
+          created_by?: string
+          description?: string | null
+          direction?: string | null
+          id?: string
+          image_url?: string | null
+          is_hidden?: boolean
+          name: string
         }
         Update: {
-          coordenadas?: number[]
+          coordinates?: number[]
+          created_at?: string
+          created_by?: string
+          description?: string | null
+          direction?: string | null
+          id?: string
+          image_url?: string | null
+          is_hidden?: boolean
+          name?: string
+        }
+        Relationships: [
+          {
+            foreignKeyName: "routes_created_by_fkey"
+            columns: ["created_by"]
+            isOneToOne: false
+            referencedRelation: "user_profiles"
+            referencedColumns: ["id"]
+          },
+        ]
+      }
+      user_profiles: {
+        Row: {
+          created_at: string | null
+          id: string
+          role: Database["public"]["Enums"]["user_role"]
+          updated_at: string | null
+          username: string
+        }
+        Insert: {
           created_at?: string | null
-          created_by?: string | null
-          descripcion?: string | null
-          direccion?: string
-          id?: never
-          imagen_url?: string | null
-          nombre?: string
+          id: string
+          role?: Database["public"]["Enums"]["user_role"]
+          updated_at?: string | null
+          username: string
+        }
+        Update: {
+          created_at?: string | null
+          id?: string
+          role?: Database["public"]["Enums"]["user_role"]
+          updated_at?: string | null
+          username?: string
         }
         Relationships: []
       }
@@ -85,7 +90,7 @@ export type Database = {
       [_ in never]: never
     }
     Enums: {
-      app_role: "admin" | "user"
+      user_role: "admin" | "user"
     }
     CompositeTypes: {
       [_ in never]: never
@@ -213,7 +218,7 @@ export type CompositeTypes<
 export const Constants = {
   public: {
     Enums: {
-      app_role: ["admin", "user"],
+      user_role: ["admin", "user"],
     },
   },
 } as const
